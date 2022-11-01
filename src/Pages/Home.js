@@ -1,16 +1,11 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { Container, Typography, Paper, Grid } from "@mui/material";
+import { useContext } from "react";
+import { Container, Typography, Grid } from "@mui/material";
+import CustomerCard from "../Components/CustomerCard";
+import CustomerContext from "../Context/CustomerContext";
 function Home() {
-  const [customers, setCustomers] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("http://localhost:3001/customer");
-      const responseJSON = await response.json();
-      setCustomers(responseJSON);
-    };
-    fetchData();
-  }, []);
+  const { customers } = useContext(CustomerContext);
+  console.log("customers: ", customers);
   return (
     <Container>
       <Typography variant='h3' gutterBottom align='center'>
@@ -21,17 +16,7 @@ function Home() {
         {customers &&
           customers.map((customer) => (
             <Grid xs={4} item key={customer.id}>
-              <Paper>
-                {" "}
-                <Typography align='center' variant='h5' gutterBottom>
-                  {" "}
-                  {customer.name}
-                </Typography>
-                <Typography align='center' variant='h5'>
-                  {" "}
-                  {customer.detail}
-                </Typography>
-              </Paper>
+              <CustomerCard customer={customer} />
             </Grid>
           ))}
       </Grid>
