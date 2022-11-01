@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   Button,
   Container,
@@ -12,6 +12,7 @@ import {
   Rating,
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+import CustomerContext, { CustomerProvider } from "../Context/CustomerContext";
 function Create() {
   const [name, setName] = useState("");
   const [detail, setDetail] = useState("");
@@ -23,6 +24,7 @@ function Create() {
     e.preventDefault();
     if (name && detail) {
       console.log(name, detail, gender, rating);
+      createCustomer({ name, detail, gender, rating });
     }
     if (name === "") {
       setNameErr(true);
@@ -31,6 +33,7 @@ function Create() {
       setDetailErr(true);
     }
   };
+  const { createCustomer } = useContext(CustomerContext);
   return (
     <Container>
       <Typography variant='h3' gutterBottom align='center'>

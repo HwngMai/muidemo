@@ -1,25 +1,25 @@
 {
-    "customer": [
-        {
-            "name": "john Doe",
-            "detail": "He does what he Doe",
-            "gender": "male",
-            "ratting": 5,
-            "id": 1
-        },
-        {
-            "name": "john Doe 2",
-            "detail": "He does what he Doe 2 ",
-            "gender": "male",
-            "ratting": 4,
-            "id": 2
-        },
-        {
-            "name": "john Doe 3",
-            "detail": "He does what he Doe 3",
-            "gender": "male",
-            "ratting": 3,
-            "id": 3
-        }
-    ]
+  "customer": [
+    {
+      "name": "john Doe",
+      "detail": "He does what he Doe",
+      "gender": "male",
+      "ratting": 5,
+      "id": 1
+    },
+    {
+      "name": "john Doe 2",
+      "detail": "He does what he Doe 2 ",
+      "gender": "male",
+      "ratting": 4,
+      "id": 2
+    },
+    {
+      "name": "Peter Parker",
+      "detail": "He has no Ben",
+      "gender": "male",
+      "rating": 5,
+      "id": 3
+    }
+  ]
 }
