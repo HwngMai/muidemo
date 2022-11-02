@@ -10,10 +10,11 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CustomerContext from "../Context/CustomerContext";
+import CustomerModal from "./CustomerModal";
 function CustomerCard({ customer }) {
   const { deleteCustomer } = useContext(CustomerContext);
   const stringAvatar = (name) => {
-    let avaText = `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`;
+    let avaText = `${name.split(" ")[0][0]}`;
     return {
       children: avaText.toUpperCase(),
     };
@@ -35,6 +36,7 @@ function CustomerCard({ customer }) {
         title={customer.name}></CardHeader>
       <CardContent>
         <Typography>{customer.detail}</Typography>
+        <CustomerModal customer={customer} />
       </CardContent>
     </Card>
   );

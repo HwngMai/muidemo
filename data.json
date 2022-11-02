@@ -20,6 +20,27 @@
       "gender": "male",
       "rating": 5,
       "id": 3
+    },
+    {
+      "name": "Mary Jane",
+      "detail": "She likes to smoke",
+      "gender": "female",
+      "rating": 3,
+      "id": 4
+    },
+    {
+      "name": "Skeler",
+      "detail": "He makes wave music",
+      "gender": "male",
+      "rating": 5,
+      "id": 5
+    },
+    {
+      "name": "Ytho",
+      "detail": "He also makes wave music",
+      "gender": "male",
+      "rating": 5,
+      "id": 6
     }
   ]
 }

@@ -10,6 +10,8 @@ import {
   RadioGroup,
   FormControlLabel,
   Rating,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import CustomerContext, { CustomerProvider } from "../Context/CustomerContext";
@@ -20,11 +22,14 @@ function Create() {
   const [detailErr, setDetailErr] = useState(false);
   const [gender, setGender] = useState("male");
   const [rating, setRating] = useState(5);
+  const [openSnackBar, setOpenSnackBar] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name && detail) {
       console.log(name, detail, gender, rating);
       createCustomer({ name, detail, gender, rating });
+      setOpenSnackBar(true);
     }
     if (name === "") {
       setNameErr(true);
@@ -32,6 +37,9 @@ function Create() {
     if (detail === "") {
       setDetailErr(true);
     }
+  };
+  const handleClose = () => {
+    setOpenSnackBar(false);
   };
   const { createCustomer } = useContext(CustomerContext);
   return (
@@ -93,6 +101,12 @@ function Create() {
           Submit
         </Button>
       </form>
+      <Snackbar
+        open={openSnackBar}
+        autoHideDuration={1500}
+        onClose={handleClose}>
+        <Alert severity='success'>Created new customer successfully!</Alert>
+      </Snackbar>
     </Container>
   );
 }
